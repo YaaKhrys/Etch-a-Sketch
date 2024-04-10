@@ -12,16 +12,74 @@
 
 <body>
     <header>
+       <div id="sketchHeader">
+            <!--Logo on the page-->
+            <div id="sktechLogo" class="logo">
+                <img src="Images/Sketch Logo.png">
+            </div>
+            
+            <!--Sketch Main Title-->
+            <div id="sketchTitle">
+                <h1>ETCH-A-SKETCH</h1>
+            </div>
 
+            <!--Settings slider-->
+            <div id="settingsIcon">
+                <img src="Images/Slider.png">
+            </div>
+        </div>
+
+        <!--Sketch subtitle-->
+        <div>
+            <h3 id="sketchSubtitle">Sketch and save away.</h3>
+        </div>
     </header>
 
-    <main>
+
+    <!--Structure for main sketch area/section-->
+    <main id="sketchZone">
+        <div>
+            <div id="sketchBackground">
+                <div class="sketchBackgroundHeader">
+                    <div id="shareIcon" class="sketchZoneIcons"><img src="Images/Share.png"></div>
+                    <div id="downloadIcon" class="sketchZoneIcons"><img src="Images/Download.png"></div>
+                    <h3 id="enterTitle">Title Here</h3>  
+                    <h5 id="gridLinesControl">Gridlines</h5>
+                </div>
+                <div class="sketchGridBox">
+                    <div id="sketchBoard" class="theGrid"></div>
+                </div>
+
+            <div id="colourPicker">
+                <h4 id="chooseColour">Pick a Colour</h4>
+                <h5 id="Hex">Hex Number</h5>
+                <span id="colourDot" ></span>
+            </div>
+
+            <div id="gridSizeSlider">
+                <div id="gridSizeSlideBar">
+                    <span id="gridSizeSlideDot" class="dot"></span>
+                </div>
+                <h6 id="gridSizeText">16X16</h6>
+            </div>
+
+            <div id="sketchToolsBar" class="container">
+                <img src="Images/Draw.png" class="sketchTools">
+                <img src="Images/Eraser.png" class="sketchTools"> 
+                <img src="Images/Invert Colors.png" class="sketchTools">
+                <img src="Images/Undo.png"class="sketchTools">
+                <img src="Images/Redo.png" class="sketchTools">
+                <img src="Images/Reset.png" class="sketchTools">
+            </div>
 
 
+        </div>
     </main>
 
-    <footer>
-
+    <!--The Footer section-->
+    <footer id="footerText">
+        <p>&copy; 2024 YaakhrysCo.
+        Thank you for using Etch-A-Sketch (An Odins Project)!</p>
     </footer>
 
 

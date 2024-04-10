@@ -1,0 +1,255 @@
+/*Import Google Font*/
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+
+
+
+/*General Page Design*/
+body {
+    font-family: 'Alegreya', sans-serif; /* Use the imported font*/
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+
+
+/*Design for the sketch page header*/
+#sketchHeader {
+    display: flex;
+    justify-content: space-between;
+    height: 180px;
+    margin-top: -1%;
+}
+
+#sketchLogo,  .logo, img {
+    max-width: 140%;
+    max-height: 70%;
+    padding: 2%;
+}
+
+
+#sketchTitle {
+    font-size: 30px;
+}
+
+#settingsIcon, img {
+    max-width: 140%;
+    max-height: 70%;
+    padding: 2%;
+}
+
+#sketchSubtitle {
+    font-size: 19px;
+    font-weight:100;
+    text-align: center;
+    margin-top: -4%;
+    color: rgb(164, 163, 162);
+}
+
+
+/*Design for the sketch section*/
+
+main {
+    display: flex;
+    justify-content: center;
+    margin: 3%;
+}
+
+
+#sketchBackground {
+    width: 900px;
+    height: 500px;
+    background-color:rgb(240, 240, 240);
+    border-radius: 46px;
+    align-content: center;
+    padding-top: 5%;
+    padding-bottom: 7%;
+    overflow: hidden;
+}
+
+
+.sketchBackgroundHeader {
+    display:flex;
+}
+
+
+
+.sketchZoneIcons {
+    max-width: 40px;
+    max-height: 40px;
+    padding: 1%;
+    z-index: 2;
+    margin-top: 18%;
+}
+
+#shareIcon{
+    justify-content:left;
+    margin-left: 2%;
+}
+
+
+#downloadIcon{
+    justify-content: left;
+    margin-top: 17.6%;
+} 
+
+
+
+#enterTitle {
+    text-align: center;
+    justify-content: center;
+    margin-left: 35%;
+    margin-top: 18%;
+    font-weight:lighter;
+    font-size: medium;
+    color: rgb(89, 88, 85);
+}
+
+#gridLinesControl {
+    justify-content: right;
+    margin-left: 30%;
+    margin-top: 20%;
+    font-weight: 30;
+    color: rgb(132, 132, 132);
+}
+
+
+.sketchGridBox{
+    margin-bottom: 10%;
+    margin-right: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20%;
+}
+
+
+#sketchBoard, .theGrid {
+    width: 450px;
+    height: 450px;
+    z-index: 2;
+    display: grid;
+    border: none;
+    background-color: rgb(246, 246, 246);   
+    margin-left: 50%;
+    position: relative;
+}
+
+
+/*Design for colour picker section*/
+
+#colourPicker {
+    width: 350px;
+    height: 70px;
+    background-color: rgb(230, 230, 230);
+    z-index: 5;
+    border-radius:46px;
+    position: fixed;
+    border: none;
+    display: flex;
+    margin-top: -10%;
+    justify-content:space-around;
+    margin-left: 19%;
+    align-items: center;
+}
+
+
+#chooseColour {
+    font-weight:bold;
+    color: #3e3f3f;
+}
+
+#Hex {
+    font-weight: lighter;
+    color: #6e6e6e;
+}
+
+#colourDot {
+    height: 25px;
+    width: 25px;
+    background-color: #29adfa;
+    border-radius: 50%;
+}
+
+
+/*Design for the sketch tool bar*/
+
+#sketchToolsBar, .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 50px;
+    height: 300px;
+    border-radius: 46px;
+    background-color: rgb(240, 240, 240);
+    position: fixed;
+    z-index: 4;
+    margin-top: -38%;
+    margin-left: 65%;
+}
+
+
+
+.sketchTools {
+    max-width: 30px;
+    max-height: 30px;
+    padding: 1%;
+    z-index: 4;
+}
+
+
+/*Design for the sketch grid size controler*/
+#gridSizeSlider {
+    display: flex;
+    align-items: center;
+}
+
+
+#gridSizeSlideBar{
+    width: 130px;
+    height: 10px;
+    background-color: rgb(224, 222, 222);
+    border: none;
+    border-radius: 46px;
+    z-index: 4;
+    position: fixed;
+    margin-top: -8%;
+    margin-left: 27%;
+}
+
+#gridSizeSlideDot, .dot {
+    height: 16px;
+    width: 16px;
+    background-color: rgb(179, 178, 178);
+    border-radius: 50%;
+    z-index: 5;
+    margin-top: -0.2%;
+    margin-left: 6%;
+    position: fixed;
+}
+
+
+#gridSizeText {
+    display: flex;
+    z-index: 4;
+    margin-top: -3%;
+    margin-left: 31%;
+    position: fixed;
+    color: #6e6e6e;
+    font-weight: lighter;
+}
+
+
+/*Design for the footer section*/
+
+#footerText {
+    margin-top: 6%;
+    font-size: small;
+    color:#e2e0e0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
