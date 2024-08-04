@@ -189,9 +189,9 @@ input:checked + .slider:before {
     height: 50vh; /* 80% of the viewport height */
     z-index: 2;
     display: grid;
-    grid-template-columns: repeat(16, 6.04%); /* 100% / 16 = 6.25%   Default grid size*/
-    grid-template-rows: repeat(16, 6.04%);
-    grid-gap: 1px;
+    grid-template-columns: repeat(16, 6.2%); /* 100% / 16 = 6.25%   Default grid size*/
+    grid-template-rows: repeat(16, 6.2%);
+    grid-gap: 0.1px;
     border: none;
     background-color: rgb(255, 255, 255);   
     margin-left: 36%;

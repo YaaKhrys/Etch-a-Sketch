@@ -11,25 +11,6 @@ const gridSizeText = document.getElementById('gridSizeText');
 const sketchSpace = document.getElementById("sketchBoard");
 
 
-/*
-// Function to generate the grid
-function generateGrid(size) {
-    // Clear previous grid
-    if (!sketchSpace) {
-        console.error("Sketch space element not found.");
-        return;
-    }
-    sketchSpace.innerHTML = '';
-
-
-    // Create grid cells and append them to the sketch board
-    for (let i = 0; i < gridSize*gridSize; i++) {
-            const cell = document.createElement('div');
-            cell.classList.add('grid-cell');
-            sketchSpace.appendChild(cell);
-        }
-};*/
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const sketchSpace = document.getElementById("sketchBoard");
