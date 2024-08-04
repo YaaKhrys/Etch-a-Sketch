@@ -1,5 +1,6 @@
 // Variables
 let gridSize = 16; // Initial grid size
+let isDrawing = false;
 
 
 
@@ -21,8 +22,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const cell = document.createElement('div');
         cell.classList.add('grid-cell');
         sketchSpace.appendChild(cell);
+    
+
+    // Add event listeners for drawing
+    cell.addEventListener('mousedown', () => {
+        isDrawing = true;
+        cell.style.backgroundColor = 'black'; // Change to desired color
+    });
+
+    cell.addEventListener('mouseover', () => {
+        if (isDrawing) {
+            cell.style.backgroundColor = 'black'; // Change to desired color
+        }
+    });
+
+    cell.addEventListener('mouseup', () => {
+        isDrawing = false;
+    });
+
+    // Ensure drawing stops when the mouse leaves the grid container
+    sketchSpace.addEventListener('mouseleave', () => {
+        isDrawing = false;
+    });
     }
+
+    // Ensure drawing stops when mouse is released anywhere on the page
+    document.addEventListener('mouseup', () => {
+    isDrawing = false;
+
+    });
 });
+
+
+
+
 
 
 
