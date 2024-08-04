@@ -30,7 +30,7 @@ body {
 
 
 #sketchTitle {
-    font-size: 30px;
+    font-size: 2vw;
 }
 
 #settingsIcon, img {
@@ -40,7 +40,7 @@ body {
 }
 
 #sketchSubtitle {
-    font-size: 19px;
+    font-size: 1.4vw;
     font-weight:100;
     text-align: center;
     margin-top: -4%;
@@ -100,10 +100,10 @@ main {
 #enterTitle {
     text-align: center;
     justify-content: center;
-    margin-left: 35%;
+    margin-left: 30%;
     /*margin-top: 18%;*/
     font-weight:lighter;
-    font-size: medium;
+    font-size: 0.2vm;
     color: rgb(89, 88, 85);
 }
 
@@ -113,6 +113,64 @@ main {
     /*margin-top: 20%;*/
     font-weight: 30;
     color: rgb(132, 132, 132);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Gridlines Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 3.5%;
+    height: 0.001%;
+    margin-top: 2.2%;
+    margin-left: 1% ;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 50%;
+    width: 30%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #94c493;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.slider.round {
+    border-radius: 20px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
 
 
@@ -126,25 +184,38 @@ main {
 
 
 #sketchBoard, .theGrid {
-    width: 450px;
-    height: 450px;
+ 
+    width: 40vw; /* 80% of the viewport width */
+    height: 50vh; /* 80% of the viewport height */
     z-index: 2;
     display: grid;
-    grid-template-columns: repeat(16, 1fr); /* Default grid size */
+    grid-template-columns: repeat(16, 6.04%); /* 100% / 16 = 6.25%   Default grid size*/
+    grid-template-rows: repeat(16, 6.04%);
     grid-gap: 1px;
     border: none;
-    background-color: rgb(246, 246, 246);   
-    margin-left: 50%;
+    background-color: rgb(255, 255, 255);   
+    margin-left: 36%;
     position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .grid-cell {
+    visibility: visible; /* Gridlines off by default */
     width: 100%;
     height: 100%;
-    background-color: white;
-    border: 1px solid #f7f7f7;
+    box-sizing: border-box;
+    border: 1px solid transparent; /* Initially hidden */
 }
+
+
+.grid-cell.gridlines {
+    visibility: visible; /* Show gridlines when toggled */
+    border-color: #ddd; /* Set the border color */
+}
+
 
 /*Design for colour picker section*/
 

@@ -64,11 +64,18 @@
                 <div class="sketchBackgroundHeader">
                     <div id="shareIcon" class="sketchZoneIcons"><img src="Images/Share.png"></div>
                     <div id="downloadIcon" class="sketchZoneIcons"><img src="Images/Download.png"></div>
-                    <h3 id="enterTitle">Title Here</h3>  
+                    <h4 id="enterTitle">Title Here</h4>  
                     <h5 id="gridLinesControl">Gridlines</h5>
-                </div>
+                    <!--<button onclick="toggleVisibility()">Toggle Visibility</button>-->
+
+                    <label class="switch">
+                        <input type="checkbox" id="gridlines-toggle" onclick="toggleGridlines()">
+                        <span class="slider round"></span>
+                    </label>
+                    </div>
                 <div class="sketchGridBox">
                     <div id="sketchBoard" class="theGrid"></div>
+                    <!--<grid class="grid-cell"></grid>-->
                 </div>
 
             <div id="colourPicker">

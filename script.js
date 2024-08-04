@@ -1,5 +1,5 @@
 // Variables
-//let gridSize = 16; // Initial grid size
+let gridSize = 16; // Initial grid size
 
 
 
@@ -11,7 +11,7 @@ const gridSizeText = document.getElementById('gridSizeText');
 const sketchSpace = document.getElementById("sketchBoard");
 
 
-
+/*
 // Function to generate the grid
 function generateGrid(size) {
     // Clear previous grid
@@ -23,19 +23,39 @@ function generateGrid(size) {
 
 
     // Create grid cells and append them to the sketch board
-    for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size; j++) {
+    for (let i = 0; i < gridSize*gridSize; i++) {
             const cell = document.createElement('div');
-            cell.classList.add('gridCell');
+            cell.classList.add('grid-cell');
             sketchSpace.appendChild(cell);
         }
+};*/
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sketchSpace = document.getElementById("sketchBoard");
+    const gridSize = 16;
+
+    // Create the grid
+    for (let i = 0; i < gridSize * gridSize; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('grid-cell');
+        sketchSpace.appendChild(cell);
     }
+});
+
+
 
     // Log grid size to console
-    console.log('Grid size:', size);
+    console.log('Grid size:', gridSize);
+
+
+// Grindlines toggle button function
+    function toggleGridlines() {
+        const cells = document.querySelectorAll(".grid-cell");
+        cells.forEach(cell => {
+        cell.classList.toggle('gridlines');
+    });
 }
-
-
 
 // Event listener for grid size slider input
 gridSizeSlideBar.addEventListener('input', function() {
@@ -53,3 +73,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial generation of grid with default size (16x16)
     generateGrid(16);
 });
+
+
