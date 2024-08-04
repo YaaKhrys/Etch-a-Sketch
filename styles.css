@@ -274,12 +274,27 @@ input:checked + .slider:before {
 
 
 
-.sketchTools {
+.sketchTools  {
     max-width: 30px;
     max-height: 30px;
     padding: 1%;
     z-index: 4;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: transform 0.3s, filter 0.3s; /* Add transitions for smooth effect */
 }
+
+.sketchTools:hover  {
+    transform: scale(1.2); /* Scale up the icon on hover */
+    filter: brightness(1.2); /* Brighten the icon on hover */
+}
+
+
+
+.sketchTools:active  {
+    transform: scale(1.1); /* Slightly reduce scale when clicked */
+    filter: brightness(0.9); /* Slightly darken the icon when clicked */
+}
+
 
 
 /*Design for the sketch grid size controler*/
