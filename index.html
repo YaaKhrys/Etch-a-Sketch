@@ -74,7 +74,8 @@
                     </label>
                     </div>
                 <div class="sketchGridBox">
-                    <div id="sketchBoard" class="theGrid"></div>
+                    <canvas id="sketchBoard" class="theGrid"></canvas>
+                    <!--<div id="sketchBoard" class="theGrid"></div>-->
                     <!--<grid class="grid-cell"></grid>-->
                 </div>
 
@@ -84,13 +85,12 @@
                 <span id="colourDot" ></span>
             </div>
 
-            <div id="gridSizeSlider">
-                <div id="gridSizeSlideBar">
+                <div id="gridSizeSlider">
+                    <input type="range" id="gridSizeSlideBar" min="16" max="120" step="4" value="16">
                     <span id="gridSizeSlideDot" class="thumb"></span>
                 </div>
-                <input type="range" id="gridSizeSlideBar" min="4" max="20" value="4" step="1">
-                <h6 id="gridSizeText">16X16</h6>
-            </div>
+                <h6 id="gridSizeText">16x16</h6>
+            
 
             <div id="sketchToolsBar" class="container">
                 <img src="Images/Draw.png" class="sketchTools">
