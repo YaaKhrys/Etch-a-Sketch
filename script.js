@@ -21,6 +21,8 @@ let gridSize = 16;
 let history = [];
 let redoStack = [];
 let currentStep = -1;
+let lastX = 0; // Store last x position
+let lastY = 0; // Store last y position
 
 
 // Save the current state of the grid
@@ -105,6 +107,9 @@ function initialize() {
 
     sketchSpace.addEventListener('mousedown', (e) => {
         isDrawing = true;
+        const rect = sketchSpace.getBoundingClientRect();
+        lastX = e.clientX - rect.left;
+        lastY = e.clientY - rect.top;
         draw(e);
         saveState();
     });
@@ -126,55 +131,111 @@ function initialize() {
         isDrawing = false;
     });
 
+
+    // Handling touch events
+    sketchSpace.addEventListener('touchstart', (e) => {
+        isDrawing = true;
+        const rect = sketchSpace.getBoundingClientRect();
+        const touch = e.touches[0];
+        lastX = touch.clientX - rect.left;
+        lastY = touch.clientY - rect.top;
+        drawTouch(touch); // Draw the initial touch point
+        saveState();
+    });
+
+    sketchSpace.addEventListener('touchmove', (e) => {
+        if (isDrawing) {
+            const touch = e.touches[0];
+            drawTouch(touch);
+        }
+    });
+
+    sketchSpace.addEventListener('touchend', () => {
+        isDrawing = false;
+    });
+    
+
     createGrid();
     saveState();
 }
 
 function createGrid() {
     
-    sketchSpace.width = 
-    sketchSpace.clientWidth;
-    
-    sketchSpace.height = 
-    sketchSpace.clientHeight;
-    cellSize = 
-    sketchSpace.width / gridSize;
-    ctx.clearRect(0, 0, 
-        sketchSpace.width, 
-        sketchSpace.height);
+    sketchSpace.width = sketchSpace.clientWidth;
+    sketchSpace.height = sketchSpace.clientHeight;
+    cellSize = sketchSpace.width / gridSize;
+    ctx.clearRect(0, 0, sketchSpace.width, sketchSpace.height);
     drawGrid();
 }
 
 function drawGrid() {
-    ctx.clearRect(0, 0, 
-        sketchSpace.width, 
-        sketchSpace.height);
+    ctx.clearRect(0, 0, sketchSpace.width, sketchSpace.height);
     if (gridlinesToggle.checked) {
         ctx.strokeStyle = '#e0e0e0';
         for (let i = 0; i <= gridSize; i++) {
             ctx.beginPath();
             ctx.moveTo(i * cellSize, 0);
-            ctx.lineTo(i * cellSize, 
-                sketchSpace.height);
+            ctx.lineTo(i * cellSize, sketchSpace.height);
             ctx.stroke();
 
             ctx.beginPath();
             ctx.moveTo(0, i * cellSize);
-            ctx.lineTo(
-                sketchSpace.width, i * cellSize);
+            ctx.lineTo(sketchSpace.width, i * cellSize);
             ctx.stroke();
         }
     }
 }
 
+//Function to draw continuous smooth lines for both mouse and touch
 function draw(e) {
-    const rect = 
-    sketchSpace.getBoundingClientRect();
-    const x = Math.floor((e.clientX - rect.left) / cellSize) * cellSize;
-    const y = Math.floor((e.clientY - rect.top) / cellSize) * cellSize;
-    ctx.fillStyle = 'black';
-    ctx.fillRect(x, y, cellSize, cellSize);
+    if (!isDrawing) return;
+
+    const rect = sketchSpace.getBoundingClientRect();
+    const currentX = e.clientX - rect.left;
+    const currentY = e.clientY - rect.top;
+
+    // Drawing logic for smooth lines
+    ctx.lineWidth = 2; // Set line width
+    ctx.lineCap = 'round'; // Smooth rounded edges
+    ctx.strokeStyle = 'black'; // Line color
+
+    // Start drawing a line
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY); // Move to the last position
+    ctx.lineTo(currentX, currentY); // Draw to the current position
+    ctx.stroke();
+
+    // Update the last position to the current one
+    lastX = currentX;
+    lastY = currentY;
 }
+
+
+
+// Function to handle touch drawing
+function drawTouch(touch) {
+    if (!isDrawing) return;
+
+    const rect = sketchSpace.getBoundingClientRect();
+    const currentX = touch.clientX - rect.left;
+    const currentY = touch.clientY - rect.top;
+
+    // Drawing logic for smooth lines
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = 'black';
+
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY); // Move to the last touch position
+    ctx.lineTo(currentX, currentY); // Draw to the current touch position
+    ctx.stroke();
+
+    // Update the last touch position
+    lastX = currentX;
+    lastY = currentY;
+}
+
+
 
 initialize();
 
@@ -184,8 +245,6 @@ window.redoAction = redoAction;
 window.resetGrid = resetGrid;
 
 });
-
-
 
 //DOM-based Approach - Old very Slow
 //Requires commenting out the canvas sketchSpace html line and uncommenting the div sketchSpace line 
