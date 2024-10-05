@@ -206,7 +206,7 @@ input:checked + .slider:before {
 
 
 .grid-cell {
-    visibility: visible; /* Gridlines off by default */
+    visibility: visible; /* Gridlines on by default */
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -298,6 +298,13 @@ input:checked + .slider:before {
     filter: brightness(0.9); /* Slightly darken the icon when clicked */
 }
 
+/* Inactive Tools*/
+#pencilWidthIcon, #eraser, #invertColour {
+    opacity: 0.5;              /* Make the icon semi-transparent */
+    color: #aaa;               /* Change the color to a light gray */
+    filter: grayscale(100%);   /* Apply grayscale */
+    pointer-events: none;      /* Disable user interaction */
+}
 
 
 /*Design for the sketch grid size controler*/
